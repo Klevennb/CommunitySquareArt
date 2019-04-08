@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Square from './Square';
 import './App.css';
 
 class App extends Component {
+  populateBoxes =()=>{
+    let box = <Square />;
+    let arr = [box];
+    for (let index = 0; index < 100; index++) {
+      arr.push(box)
+    }
+    return arr.map(
+      (boxes, i) => boxes
+    )
+  }
+  boxes = () =>{
+    console.log('hi');
+    
+    return 
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div><h1>Community Square Art</h1></div>
+        <div>
+          {this.populateBoxes()}
+        </div>
       </div>
+
     );
   }
 }
