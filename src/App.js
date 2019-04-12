@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Square from './Square';
 import { connect } from 'react-redux';
-import { Provider } from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -11,6 +10,20 @@ class App extends Component {
       timer: 30,
       gameOn: false
     }
+  }
+  componentDidUpdate(){
+    if (this.state.timer === 0) {
+      this.stopGame();
+    }
+    
+  }
+  stopGame = () => {
+    if (this.state.gameOn === true) {
+      this.setState({
+        gameOn: false
+      })
+    }
+
   }
   populateBoxes =()=>{
     let box = <Square gameOn={this.state.gameOn}/>;
