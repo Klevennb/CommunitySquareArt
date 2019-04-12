@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timer: 30,
+      timer: 10,
       gameOn: false
     }
   }
@@ -36,6 +36,9 @@ class App extends Component {
     )
   }
   startGame = () =>{
+    if (this.state.timer < 5) {
+      window.location.reload();
+    }
     this.setState({
       gameOn: true
     })
@@ -48,7 +51,7 @@ class App extends Component {
     return (
       <div className="App">
         <div><h1>Box Fill Game</h1></div>
-        <div><h2>Time Left:{this.state.timer}</h2></div>
+        {this.state.gameOn?<div><h2>Time Left:{this.state.timer}</h2></div>:<div><h1>Game Over</h1></div>}
         <div><h2>Score:{this.props.reduxState.whiteReducer}</h2></div>
         <div><button onClick={this.startGame}>Start Game</button></div>
         <div className='display-area'>
