@@ -6,7 +6,11 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
-
+// let worker = new Worker('task.js');
+// worker.addEventListener('message', function (e) {
+//     console.log('Worker said: ', e.data);
+// }, false);
+// worker.postMessage("Hello World");
 const whiteReducer = (state = 0, action) => {
     switch (action.type) {
         case 'WHITE':

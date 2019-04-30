@@ -47,6 +47,19 @@ class App extends Component {
       1000
     );
   }
+
+  findBest=(highest) =>{
+    let best = 500;
+    let lowest = 500;
+    let prices=[4,9,320,16,99];
+    for (let i = 0; i < prices.length; i++) {
+      if (prices[i] < best && prices[i] < best){
+        lowest = prices[i];
+      }
+    }
+    console.log('The answer is:', lowest);
+    
+  }
   render() {
     return (
       <div className="App">
